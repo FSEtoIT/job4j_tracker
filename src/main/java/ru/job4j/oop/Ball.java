@@ -2,6 +2,10 @@ package ru.job4j.oop;
 
 public class Ball {
     public void tryRun(boolean condition) {
-        System.out.println("Я адов Колобище, закатаю в асфальт ваше днище!");
+        if (condition) {
+            System.out.println("Колобок был съеден!");
+        } else {
+            System.out.println("Колобок сбежал.");
+        }
     }
 }
