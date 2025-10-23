@@ -16,21 +16,6 @@ public class Item {
         this.name = name;
     }
 
-    public void printInfo() {
-        System.out.println("Ваш ID " + id);
-        System.out.println("Ваше Имя: " + name);
-        System.out.println("=========================");
-    }
-
-    public static void main(String[] args) {
-        Item item1 = new Item(1, "Ted");
-        Item item2 = new Item(2, "Bill");
-        Item item3 = new Item();
-        item1.printInfo();
-        item2.printInfo();
-        item3.printInfo();
-    }
-
     public int getId() {
         return id;
     }
