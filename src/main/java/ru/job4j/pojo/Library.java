@@ -26,7 +26,7 @@ public class Library {
         System.out.println("Shown only books with name = Clean code");
         for (int index = 0; index < books.length; index++) {
             Book book = books[index];
-            if (book.getName() == "Clean code") {
+            if (book.getName().equals("Clean code")) {
                 System.out.println("Massive #:" + " " + index + " - " + book.getName() + " - " + book.getCountLists() + " pages");
             }
         }
