@@ -8,18 +8,28 @@ public class StartUI {
         boolean run = true;
         while (run) {
             showMenu();
-            System.out.print("Выбрать: ");
+            System.out.print("=== Выбрать: ");
             int select = Integer.parseInt(scanner.nextLine());
             if (select == 0) {
                 System.out.println("=== Создание новой заявки ===");
-                System.out.print("Введите имя: ");
+                System.out.print("=== Введите имя: ");
                 String name = scanner.nextLine();
                 Item item = new Item(name);
                 tracker.add(item);
-                System.out.println("Добавленная заявка: " + item);
+                System.out.println("=== Добавленная заявка: " + item + " ===");
             } else if (select == 6) {
-                System.out.println("Завершение работы.");
+                System.out.println("=== Завершение работы. ===");
                 run = false;
+            } else if (select == 1) {
+                System.out.println("=== Вывод всех заявок ===");
+                Item[] items = tracker.findAll();
+                if (items.length > 0) {
+                    for (Item item : items) {
+                        System.out.println(item);
+                    }
+                } else {
+                    System.out.println("=== Хранилище еще не содержит заявок ===");
+                }
             }
         }
     }
@@ -30,7 +40,7 @@ public class StartUI {
                 "Удалить заявку", "Показать заявку по id", "Показать заявки по имени",
                 "Завершить программу"
         };
-        System.out.println("Меню:");
+        System.out.println("=========Меню:=========");
         for (int i = 0; i < menu.length; i++) {
             System.out.println(i + ". " + menu[i]);
         }
