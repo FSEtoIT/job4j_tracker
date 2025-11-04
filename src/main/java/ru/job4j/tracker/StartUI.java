@@ -30,6 +30,18 @@ public class StartUI {
                 } else {
                     System.out.println("=== Хранилище еще не содержит заявок ===");
                 }
+            } else if (select == 2) {
+                System.out.println("=== Редактирование заявки ===");
+                System.out.print("=== Введите id: ");
+                int id = Integer.parseInt(scanner.nextLine());
+                System.out.print("=== Введите имя: ");
+                String name = scanner.nextLine();
+                Item item = new Item(name);
+                if (tracker.replace(id, item)) {
+                    System.out.println("=== Заявка изменена успешно.===");
+                } else {
+                    System.out.println("=== Ошибка замены заявки.===");
+                }
             }
         }
     }
@@ -40,7 +52,7 @@ public class StartUI {
                 "Удалить заявку", "Показать заявку по id", "Показать заявки по имени",
                 "Завершить программу"
         };
-        System.out.println("=========Меню:=========");
+        System.out.println("\n=========Меню:=========");
         for (int i = 0; i < menu.length; i++) {
             System.out.println(i + ". " + menu[i]);
         }
