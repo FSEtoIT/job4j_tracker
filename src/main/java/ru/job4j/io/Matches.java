@@ -12,28 +12,35 @@ public class Matches {
             String player = turn ? "Первый игрок" : "Второй игрок";
             System.out.println("На столе осталось " + count + " спичек.");
             System.out.println(player + " введите число от 1 до 3:");
-            int matches = Integer.parseInt(input.nextLine());
-            turn = !turn;
-            /* Остальная логика игры. */
-            if (matches < 1 || matches > 3) {
-                System.out.println("Можно брать только от 1 до 3 спичек!\n");
-                continue;
+            String line = input.nextLine();
+            boolean validMove = true;
+            int matches = 0;
+            if (line.matches("\\d+")) {
+                matches = Integer.parseInt(line);
+                if (matches < 1 || matches > 3) {
+                    System.out.println("Можно брать только от 1 до 3 спичек!");
+                    validMove = false;
+                } else if (matches > count) {
+                    System.out.println("Нельзя взять больше спичек, чем осталось!");
+                    validMove = false;
+                }
+            } else {
+                System.out.println("Ошибка: нужно ввести число!");
+                validMove = false;
             }
-            if (matches > count) {
-                System.out.println("Нельзя взять больше спичек, чем осталось!\n");
-                continue;
-            }
-            count -= matches;
-            if (count == 0) {
-                // Тот, кто сделал этот ход, проигрывает
-                System.out.println(player + " взял последнюю спичку!");
-                break;
+            if (validMove) {
+                count -= matches;
+                if (count == 0) {
+                    System.out.println(player + " взял последнюю спичку!");
+                    break;
+                }
+                turn = !turn;
             }
         }
         if (!turn) {
-            System.out.println("Выиграл первый игрок");
+            System.out.println("\nВыиграл первый игрок!");
         } else {
-            System.out.println("Выиграл второй игрок");
+            System.out.println("\nВыиграл второй игрок!");
         }
     }
 }
