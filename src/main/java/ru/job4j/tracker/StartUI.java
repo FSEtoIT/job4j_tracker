@@ -2,7 +2,7 @@ package ru.job4j.tracker;
 
 public class StartUI {
 
-    public void init(Input input, Tracker tracker) {
+    public static void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
             showMenu();
@@ -82,7 +82,7 @@ public class StartUI {
         }
     }
 
-    private static void add(Input input, Tracker tracker) {
+    public static void add(Input input, Tracker tracker) {
         System.out.println("=== Создание новой заявки ===");
         String name = input.askStr("=== Введите имя: ");
         Item item = new Item(name);
@@ -90,7 +90,7 @@ public class StartUI {
         System.out.println("=== Добавленная заявка: " + item + " ===");
     }
 
-    private void showMenu() {
+    private static void showMenu() {
         String[] menu = {
                 "Добавить новую заявку", "Показать все заявки", "Изменить заявку",
                 "Удалить заявку", "Показать заявку по id", "Показать заявки по имени",
