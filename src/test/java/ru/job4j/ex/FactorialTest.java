@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FactorialTest {
 
     @Test
-    public void whenNumberIsNegative_thenThrowIllegalArgumentException() {
+    public void whenNumberIsNegativeThenThrowIllegalArgumentException() {
         Factorial factorial = new Factorial();
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
@@ -14,5 +14,14 @@ class FactorialTest {
                         factorial.calc(-1)
         );
         assertEquals("Number could not be less than 0", exception.getMessage());
+    }
+
+    @Test
+    public void whenNumberIsPositiveThenCalculateFactorialCorrectly() {
+        Factorial factorial = new Factorial();
+
+        int result = factorial.calc(5);
+
+        assertEquals(120, result);
     }
 }
