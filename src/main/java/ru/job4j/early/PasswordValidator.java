@@ -24,12 +24,18 @@ public class PasswordValidator {
         for (char symbol : password.toCharArray()) {
             if (Character.isUpperCase(symbol)) {
                 hasUpCase = true;
-            } else if (Character.isLowerCase(symbol)) {
+            }
+            if (Character.isLowerCase(symbol)) {
                 hasLowCase = true;
-            } else if (Character.isDigit(symbol)) {
+            }
+            if (Character.isDigit(symbol)) {
                 hasDigit = true;
-            } else {
+            }
+            if (!Character.isLetterOrDigit(symbol)) {
                 hasSpecial = true;
+            }
+            if (hasUpCase && hasLowCase && hasDigit && hasSpecial) {
+                break;
             }
         }
 
