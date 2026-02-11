@@ -7,6 +7,7 @@ import ru.job4j.tracker.output.ConsoleOutput;
 import ru.job4j.tracker.output.Output;
 
 public class StartUI {
+
     private final Output output;
 
     public StartUI(Output output) {
