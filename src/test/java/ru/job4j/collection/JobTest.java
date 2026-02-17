@@ -50,4 +50,56 @@ public class JobTest {
         int rsl = comparator.compare(first, second);
         assertThat(rsl).isLessThan(0);
     }
+
+    @Test
+    public void whenDescByNameAndDescByPriority() {
+        Comparator<Job> comparator =
+                new JobDescByName().thenComparing(new JobDescByPriority());
+
+        int rsl = comparator.compare(
+                new Job("Impl task", 1),
+                new Job("Fix bug", 2)
+        );
+
+        assertThat(rsl).isLessThan(0);
+    }
+
+    @Test
+    public void whenAscByNameAndAscByPriority() {
+        Comparator<Job> comparator =
+                new JobAscByName().thenComparing(new JobAscByPriority());
+
+        int rsl = comparator.compare(
+                new Job("Fix bug", 1),
+                new Job("Impl task", 2)
+        );
+
+        assertThat(rsl).isLessThan(0);
+    }
+
+    @Test
+    public void whenAscByNameAndDescByPriorityAndNamesEqual() {
+        Comparator<Job> comparator =
+                new JobAscByName().thenComparing(new JobDescByPriority());
+
+        int rsl = comparator.compare(
+                new Job("Fix bug", 2),
+                new Job("Fix bug", 1)
+        );
+
+        assertThat(rsl).isLessThan(0);
+    }
+
+    @Test
+    public void whenDescByNameAndAscByPriorityAndNamesEqual() {
+        Comparator<Job> comparator =
+                new JobDescByName().thenComparing(new JobAscByPriority());
+
+        int rsl = comparator.compare(
+                new Job("Fix bug", 1),
+                new Job("Fix bug", 2)
+        );
+
+        assertThat(rsl).isLessThan(0);
+    }
 }
