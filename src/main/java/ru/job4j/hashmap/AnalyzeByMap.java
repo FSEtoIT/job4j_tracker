@@ -36,8 +36,7 @@ public class AnalyzeByMap {
 
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                map.put(subject.name(),
-                        map.getOrDefault(subject.name(), 0) + subject.score());
+                map.merge(subject.name(), subject.score(), Integer::sum);
             }
         }
 
@@ -45,8 +44,8 @@ public class AnalyzeByMap {
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             result.add(new Label(
                     entry.getKey(),
-                    (double) entry.getValue() / pupils.size()
-            ));
+                    (double) entry.getValue() / pupils.size())
+            );
         }
         return result;
     }
@@ -70,8 +69,7 @@ public class AnalyzeByMap {
 
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                map.put(subject.name(),
-                        map.getOrDefault(subject.name(), 0) + subject.score());
+                map.merge(subject.name(), subject.score(), Integer::sum);
             }
         }
 
