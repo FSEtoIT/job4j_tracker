@@ -8,14 +8,8 @@ public class DepartmentsAscComparator implements Comparator<String> {
     public int compare(String left, String right) {
         String[] a1 = left.split("/");
         String[] a2 = right.split("/");
-        int len = Math.min(a1.length, a2.length);
+        int result = a1[0].compareTo(a2[0]);
 
-        for (int i = 0; i < len; i++) {
-            int cmp = a1[i].compareTo(a2[i]);
-            if (cmp != 0) {
-                return cmp;
-            }
-        }
-        return Integer.compare(a1.length, a2.length);
+        return result != 0 ? result : left.compareTo(right);
     }
 }
