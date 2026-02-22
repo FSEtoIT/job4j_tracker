@@ -22,7 +22,7 @@ public class FunctionalInterfaces {
         System.out.println(map);
 
         BiPredicate<Integer, String> biPredicate =
-                (key, value) -> key % 2 == 0 || map.get(key).length() == 4;
+                (key, value) -> key % 2 == 0 || value.length() == 4;
 
         for (Map.Entry<Integer, String> entry : map.entrySet()) {
                 if (biPredicate.test(entry.getKey(), entry.getValue())) {
