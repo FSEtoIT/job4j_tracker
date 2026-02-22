@@ -1,3 +1,4 @@
+/*
 package ru.job4j.collection;
 
 import java.util.Comparator;
@@ -13,3 +14,4 @@ public class DepartmentsAscComparator implements Comparator<String> {
         return result != 0 ? result : left.compareTo(right);
     }
 }
+*/
