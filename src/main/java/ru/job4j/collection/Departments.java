@@ -22,11 +22,14 @@ public class Departments {
         return new ArrayList<>(temp);
     }
 
-    public static void sortAsc(List<String> departments) {
-        departments.sort(new DepartmentsAscComparator());
-    }
-
     public static void sortDesc(List<String> departments) {
         departments.sort(new DepartmentsDescComparator());
     }
+    /*
+// Удалено за ненадобностью
+
+    public static void sortAsc(List<String> departments) {
+        departments.sort(new DepartmentsAscComparator());
+    }
+     */
 }

@@ -45,6 +45,9 @@ class DepartmentsTest {
         assertThat(result).containsSequence(expected);
     }
 
+/*
+    // Удалено за ненадобностью
+
     @Test
     void whenSortAscWithoutMissedDepartments() {
         List<String> input = Arrays.asList(
@@ -94,6 +97,7 @@ class DepartmentsTest {
         Departments.sortAsc(input);
         assertThat(input).containsSequence(expected);
     }
+    */
 
     @Test
     void whenSortDescWithoutMissedDepartments() {
