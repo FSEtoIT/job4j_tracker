@@ -40,7 +40,11 @@ public class CollegeTest {
                 )
         );
         College college = new College(students);
-        assertThat(college.findByAccount("000001").get().group()).isEqualTo("201-18-15");
+        String group = college.findByAccount("000001")
+                .map(Student::group)
+                .orElseThrow();
+
+        assertThat(group).isEqualTo("201-18-15");
     }
 
     @Test
@@ -94,6 +98,10 @@ public class CollegeTest {
                 )
         );
         College college = new College(students);
-        assertThat(college.findBySubjectName("000002", "Sociology").get().score()).isEqualTo(65);
+        int score = college.findBySubjectName("000002", "Sociology")
+                .map(Subject::score)
+                .orElseThrow();
+
+        assertThat(score).isEqualTo(65);
     }
 }
