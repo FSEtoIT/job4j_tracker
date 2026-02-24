@@ -12,5 +12,5 @@ public class Paint {
     }
 }
 /*
-Тест CI Git
+Тест CI Git2
  */
