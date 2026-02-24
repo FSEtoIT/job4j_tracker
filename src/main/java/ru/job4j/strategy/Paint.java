@@ -11,3 +11,6 @@ public class Paint {
         context.draw(new Square());
     }
 }
+/*
+Тест CI Git
+ */
